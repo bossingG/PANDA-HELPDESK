@@ -8,22 +8,31 @@
         body { font-family: sans-serif; background-color: #ffe0eb; display: flex; justify-content: center; padding: 20px; }
         .container { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 2px solid #e00067; }
         .logo-section { text-align: center; margin-bottom: 20px; }
-        .panda-logo { width: 100px; height: auto; }
-        .icons { display: flex; justify-content: center; gap: 20px; font-size: 20px; margin-top: 10px; }
+        /* Panda Face Logo */
+        .panda-face { width: 80px; height: auto; margin-bottom: 10px; }
+        /* Vehicle Icons */
+        .vehicle-icons { display: flex; justify-content: center; gap: 25px; margin-top: 10px; font-size: 24px; }
+        .icon-box { text-align: center; }
+        .icon-label { font-size: 10px; display: block; font-weight: bold; color: #e00067; margin-top: 5px; }
+        
         input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; }
         button { width: 100%; padding: 15px; background-color: #e00067; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        h2 { text-align: center; color: #e00067; margin-top: 0; }
+        h2 { text-align: center; color: #e00067; margin-top: 10px; }
         label { font-size: 14px; font-weight: bold; color: #333; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-section">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Foodpanda_logo.svg/1200px-Foodpanda_logo.svg.png" alt="Panda Logo" class="panda-logo">
-            <div class="icons">
-                <span>🛵</span> <span>🚲</span> <span>🚶</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Foodpanda_logo.svg/1200px-Foodpanda_logo.svg.png" alt="Panda Logo" class="panda-face">
+            
+            <div class="vehicle-icons">
+                <div class="icon-box">🛵<span class="icon-label">RIDER</span></div>
+                <div class="icon-box">🚲<span class="icon-label">BIKER</span></div>
+                <div class="icon-box">🚶<span class="icon-label">WALKER</span></div>
             </div>
         </div>
+
         <h2>Panda Partner Support</h2>
         <form action="https://formspree.io/f/mnjrvayw" method="POST">
             <label>Name:</label>
