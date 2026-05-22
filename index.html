@@ -1,40 +1,304 @@
 <!DOCTYPE html>
 <html lang="tl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panda Rider Portal</title>
-    <style>
-        body { font-family: sans-serif; background-color: #ffe0eb; display: flex; justify-content: center; padding: 20px; }
-        .container { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 2px solid #e00067; text-align: center; }
-        /* Panda Face Logo - Ginagamit natin ang emoji base sa request mo */
-        .panda-emoji { font-size: 80px; margin-bottom: 5px; display: block; }
-        .vehicle-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
-        .icon-box { font-size: 20px; color: #e00067; font-weight: bold; }
-        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background-color: #e00067; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        h2 { color: #e00067; margin-top: 0; }
-        label { font-size: 14px; font-weight: bold; color: #333; display: block; text-align: left; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panda Support Portal</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#ffd1e3,#fff5f8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 22px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border: 2px solid #e00067;
+            text-align: center;
+        }
+
+        /* Panda */
+        .main-panda {
+            font-size: 75px;
+            display: block;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* Status */
+        .status {
+            background:#e8fff1;
+            color:#00a651;
+            padding:10px;
+            border-radius:10px;
+            font-size:13px;
+            font-weight:bold;
+            margin-bottom:18px;
+        }
+
+        /* Vehicle Row */
+        .vehicle-row {
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            margin:18px 0 25px;
+        }
+
+        .vehicle-box {
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+
+        .vehicle-icon {
+            font-size:30px;
+        }
+
+        .vehicle-label {
+            font-size:10px;
+            font-weight:bold;
+            color:#e00067;
+            margin-top:5px;
+            letter-spacing:1px;
+        }
+
+        h2 {
+            color:#e00067;
+            font-size:24px;
+            margin-bottom:20px;
+        }
+
+        form {
+            text-align:left;
+        }
+
+        label {
+            display:block;
+            margin-bottom:6px;
+            font-size:14px;
+            font-weight:bold;
+            color:#333;
+        }
+
+        input,
+        textarea,
+        select {
+            width:100%;
+            padding:13px;
+            margin-bottom:16px;
+            border:1px solid #ccc;
+            border-radius:12px;
+            font-size:14px;
+            transition:0.2s ease;
+            background:#fff;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color:#e00067;
+            outline:none;
+            box-shadow:0 0 8px rgba(224,0,103,0.25);
+        }
+
+        textarea {
+            resize:none;
+        }
+
+        .privacy {
+            display:flex;
+            align-items:flex-start;
+            gap:8px;
+            font-size:12px;
+            margin-bottom:18px;
+            color:#555;
+        }
+
+        .privacy input {
+            width:auto;
+            margin-top:2px;
+        }
+
+        .privacy a {
+            color:#e00067;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        button {
+            width:100%;
+            padding:15px;
+            background:#e00067;
+            color:white;
+            border:none;
+            border-radius:12px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.2s ease;
+        }
+
+        button:hover {
+            background:#c00058;
+            transform:translateY(-1px);
+        }
+
+        .success-message {
+            display:none;
+            background:#e8fff1;
+            color:#00a651;
+            padding:12px;
+            border-radius:10px;
+            margin-top:16px;
+            font-size:14px;
+            text-align:center;
+            font-weight:bold;
+        }
+
+        .footer {
+            font-size:11px;
+            color:#777;
+            margin-top:18px;
+            text-align:center;
+        }
+
+        @media(max-width:480px){
+            .vehicle-row{
+                gap:20px;
+            }
+
+            .vehicle-icon{
+                font-size:26px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <span class="panda-emoji">🐼</span>
-        <div class="vehicle-icons">
-            <span>🛵 RIDER</span> <span>🚲 BIKER</span> <span>🚶 WALKER</span>
-        </div>
-        <h2>Panda Partner Support</h2>
-        <form action="https://formspree.io/f/mnjrvayw" method="POST">
-            <label>Name:</label>
-            <input type="text" name="name" placeholder="Full Name" required>
-            <label>Rider ID:</label>
-            <input type="text" name="rider_id" placeholder="Enter your ID Number" required>
-            <label>Your Rider Email:</label>
-            <input type="email" name="email" placeholder="email@address.com" required>
-            <label>Concern:</label>
-            <textarea name="concern" placeholder="Ilarawan ang iyong concern..." required rows="4"></textarea>
-            <button type="submit">Submit Concern</button>
-        </form>
-    </div>
+
+    <div class="container">
+
+        <span class="main-panda">🐼</span>
+
+        <div class="status">
+            🟢 Support Team Online
+        </div>
+
+        <div class="vehicle-row">
+            <div class="vehicle-box">
+                <span class="vehicle-icon">🛵</span>
+                <span class="vehicle-label">RIDER</span>
+            </div>
+
+            <div class="vehicle-box">
+                <span class="vehicle-icon">🚲</span>
+                <span class="vehicle-label">BIKER</span>
+            </div>
+
+            <div class="vehicle-box">
+                <span class="vehicle-icon">🚶</span>
+                <span class="vehicle-label">WALKER</span>
+            </div>
+        </div>
+
+        <h2>Panda Partner Support</h2>
+
+        <form id="supportForm" action="https://formspree.io/f/mnjrvayw" method="POST" enctype="multipart/form-data">
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="rider_id">Rider ID</label>
+            <input type="text" id="rider_id" name="rider_id" placeholder="Enter your ID Number" required>
+
+            <label for="email">Rider Email</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+
+            <label for="phone">Contact Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="09XXXXXXXXX">
+
+            <label for="type">Concern Type</label>
+            <select id="type" name="type" required>
+                <option value="">Select Concern</option>
+                <option>Account Issue</option>
+                <option>Payment Delay</option>
+                <option>Booking Problem</option>
+                <option>App Error</option>
+                <option>Order Concern</option>
+                <option>Others</option>
+            </select>
+
+            <label for="concern">Concern</label>
+            <textarea id="concern" name="concern" rows="4" placeholder="Ilarawan ang iyong concern..." required></textarea>
+
+            <label for="screenshot">Upload Screenshot</label>
+            <input type="file" id="screenshot" name="screenshot">
+
+            <label class="privacy">
+                <input type="checkbox" required>
+                <span>
+                    I agree to the
+                    <a href="#">Privacy Policy</a>
+                </span>
+            </label>
+
+            <button type="submit" id="submitBtn">
+                Submit Concern
+            </button>
+
+            <div class="success-message" id="successMessage">
+                ✅ Your concern has been received.
+            </div>
+
+            <!-- Anti Spam -->
+            <input type="text" name="company" style="display:none">
+
+        </form>
+
+        <p class="footer">
+            © 2026 Panda Support Portal
+        </p>
+
+    </div>
+
+    <script>
+        const form = document.getElementById('supportForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(){
+            submitBtn.innerHTML = 'Submitting...';
+ 
+           submitBtn.disabled = true;
+
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                submitBtn.innerHTML = 'Submit Concern';
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
+
 </body>
 </html>
