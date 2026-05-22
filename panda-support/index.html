@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panda Partner Support</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ffd1e3,#fff5f8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    border:2px solid #e00067;
+    position:relative;
+    overflow:hidden;
+}
+
+.top-bar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:#e00067;
+}
+
+.main-panda{
+    font-size:75px;
+    text-align:center;
+    display:block;
+    margin-top:10px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.status{
+    background:#e8fff1;
+    color:#00a651;
+    padding:10px;
+    border-radius:12px;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    margin:15px 0 20px;
+}
+
+.vehicle-row{
+    display:flex;
+    justify-content:space-around;
+    margin-bottom:25px;
+}
+
+.vehicle-box{
+    text-align:center;
+}
+
+.vehicle-icon{
+    font-size:30px;
+}
+
+.vehicle-label{
+    margin-top:5px;
+    font-size:11px;
+    font-weight:bold;
+    color:#e00067;
+}
+
+h2{
+    text-align:center;
+    color:#e00067;
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:13px;
+    color:#666;
+    margin-bottom:25px;
+}
+
+form{
+    width:100%;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:bold;
+    color:#333;
+}
+
+.required{
+    color:#e00067;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:12px;
+    margin-bottom:18px;
+    font-size:14px;
+    background:#fafafa;
+    transition:0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#e00067;
+    background:white;
+    outline:none;
+    box-shadow:0 0 8px rgba(224,0,103,0.2);
+}
+
+textarea{
+    resize:none;
+}
+
+.privacy{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:13px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.privacy input{
+    width:auto;
+    margin-top:3px;
+}
+
+.privacy a{
+    color:#e00067;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#e00067;
+    color:white;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#c00058;
+    transform:translateY(-2px);
+}
+
+.success-message{
+    display:none;
+    background:#e8fff1;
+    color:#00a651;
+    padding:12px;
+    border-radius:12px;
+    margin-top:18px;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.footer{
+    text-align:center;
+    font-size:11px;
+    color:#777;
+    margin-top:20px;
+    line-height:1.5;
+    border-top:1px solid #eee;
+    padding-top:15px;
+}
+
+@media(max-width:480px){
+
+    .container{
+        padding:20px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    .vehicle-icon{
+        font-size:26px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="top-bar"></div>
+
+<span class="main-panda">🐼</span>
+
+<div class="status">
+🟢 Support Team Online
+</div>
+
+<div class="vehicle-row">
+
+<div class="vehicle-box">
+<div class="vehicle-icon">🛵</div>
+<div class="vehicle-label">RIDER</div>
+</div>
+
+<div class="vehicle-box">
+<div class="vehicle-icon">🚲</div>
+<div class="vehicle-label">BIKER</div>
+</div>
+
+<div class="vehicle-box">
+<div class="vehicle-icon">🚶</div>
+<div class="vehicle-label">WALKER</div>
+</div>
+
+</div>
+
+<h2>Panda Partner Support</h2>
+
+<div class="subtitle">
+Official Logistics Form & Ticket Submission
+</div>
+
+<form
+id="supportForm"
+action="https://formspree.io/f/mnjrvayw"
+method="POST">
+
+<label>
+Full Name
+<span class="required">*</span>
+</label>
+
+<input
+type="text"
+name="name"
+placeholder="Juan Dela Cruz"
+required>
+
+<label>
+Rider ID Number
+<span class="required">*</span>
+</label>
+
+<input
+type="text"
+name="rider_id"
+placeholder="e.g. 1234567"
+required>
+
+<label>
+Registered Email Address
+<span class="required">*</span>
+</label>
+
+<input
+type="email"
+name="email"
+placeholder="yourname@gmail.com"
+required>
+
+<label>
+Contact Number
+</label>
+
+<input
+type="tel"
+name="phone"
+placeholder="09XXXXXXXXX">
+
+<label>
+Vehicle Classification
+<span class="required">*</span>
+</label>
+
+<select name="vehicle_type" required>
+
+<option value="">
+Select your vehicle type...
+</option>
+
+<option>
+Motorcycle (Rider)
+</option>
+
+<option>
+Bicycle (Biker)
+</option>
+
+<option>
+Walker
+</option>
+
+</select>
+
+<label>
+Concern Type
+<span class="required">*</span>
+</label>
+
+<select name="concern_type" required>
+
+<option value="">
+Select Concern
+</option>
+
+<option>
+Account Issue
+</option>
+
+<option>
+Payment Delay
+</option>
+
+<option>
+Booking Problem
+</option>
+
+<option>
+App Error
+</option>
+
+<option>
+Order Concern
+</option>
+
+<option>
+Others
+</option>
+
+</select>
+
+<label>
+Ticket Concern / Details
+<span class="required">*</span>
+</label>
+
+<textarea
+name="concern"
+rows="5"
+placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..."
+required></textarea>
+
+<div class="privacy">
+
+<input
+type="checkbox"
+required>
+
+<div>
+I agree to the
+<a href="#">Privacy Policy</a>
+</div>
+
+</div>
+
+<button
+type="submit"
+id="submitBtn">
+
+Submit Official Ticket
+
+</button>
+
+<div
+class="success-message"
+id="successMessage">
+
+✅ Your concern has been received.
+
+</div>
+
+</form>
+
+<div class="footer">
+
+<strong>
+Data Privacy & Security Notice:
+</strong>
+
+<br><br>
+
+All submitted information is strictly encrypted and handled in compliance with the Data Privacy Act of 2012.
+
+<br><br>
+
+© 2026 Panda Partner Support
+
+</div>
+
+</div>
+
+<script>
+
+const form = document.getElementById('supportForm');
+
+const submitBtn =
+document.getElementById('submitBtn');
+
+const successMessage =
+document.getElementById('successMessage');
+
+form.addEventListener('submit',function(){
+
+    submitBtn.innerHTML = 'Submitting...';
+
+    submitBtn.disabled = true;
+
+    setTimeout(()=>{
+
+        successMessage.style.display='block';
+
+        submitBtn.innerHTML =
+        'Submit Official Ticket';
+
+        submitBtn.disabled = false;
+
+    },2000);
+
+});
+
+</script>
+
+</body>
+</html>
