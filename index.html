@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,7 +27,7 @@ body{
 
 .container{
     width:100%;
-    max-width:420px;
+    max-width:430px;
     background:white;
     border-radius:25px;
     padding:25px;
@@ -50,6 +51,16 @@ body{
     text-align:center;
     display:block;
     margin-top:10px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
 }
 
 .status{
@@ -60,7 +71,20 @@ body{
     text-align:center;
     font-size:14px;
     font-weight:bold;
-    margin:15px 0 20px;
+    margin:15px 0 10px;
+}
+
+.live-queue{
+    background:#fff3f8;
+    border:1px solid #ffc0da;
+    color:#e00067;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:20px;
+    line-height:1.6;
 }
 
 .vehicle-row{
@@ -95,11 +119,23 @@ h2{
     text-align:center;
     font-size:13px;
     color:#666;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
-form{
-    width:100%;
+.ticket-box{
+    background:#f9f9f9;
+    border:1px dashed #e00067;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.ticket-number{
+    color:#e00067;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:5px;
 }
 
 label{
@@ -126,8 +162,65 @@ select{
     background:#fafafa;
 }
 
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#e00067;
+    background:white;
+    outline:none;
+    box-shadow:0 0 8px rgba(224,0,103,0.2);
+}
+
 textarea{
     resize:none;
+}
+
+.progress-box{
+    margin-bottom:20px;
+}
+
+.progress-label{
+    font-size:12px;
+    color:#555;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress{
+    width:78%;
+    height:100%;
+    background:#e00067;
+    animation:loading 2s infinite;
+}
+
+@keyframes loading{
+    0%{
+        width:50%;
+    }
+    50%{
+        width:85%;
+    }
+    100%{
+        width:50%;
+    }
+}
+
+.notice{
+    background:#fff8e7;
+    border:1px solid #ffd86a;
+    padding:12px;
+    border-radius:12px;
+    font-size:13px;
+    color:#7a5a00;
+    margin-bottom:20px;
+    line-height:1.5;
 }
 
 .privacy{
@@ -162,6 +255,10 @@ button{
     cursor:pointer;
 }
 
+button:hover{
+    background:#c00058;
+}
+
 .success-message{
     display:none;
     background:#e8fff1;
@@ -185,6 +282,7 @@ button{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -197,6 +295,11 @@ button{
 
 <div class="status">
 🟢 Support Team Online
+</div>
+
+<div class="live-queue">
+🚨 92 riders currently waiting<br>
+⏱ Estimated response: 3-5 minutes
 </div>
 
 <div class="vehicle-row">
@@ -222,6 +325,23 @@ button{
 
 <div class="subtitle">
 Official Logistics Form & Ticket Submission
+</div>
+
+<div class="ticket-box">
+Ticket Number
+<div class="ticket-number" id="ticketNumber">
+PP-000000
+</div>
+</div>
+
+<div class="progress-box">
+<div class="progress-label">
+System Queue Processing...
+</div>
+
+<div class="progress-bar">
+<div class="progress"></div>
+</div>
 </div>
 
 <form id="supportForm"
@@ -271,6 +391,17 @@ name="phone"
 placeholder="09XXXXXXXXX">
 
 <label>
+Area / City
+<span class="required">*</span>
+</label>
+
+<input
+type="text"
+name="city"
+placeholder="Quezon City"
+required>
+
+<label>
 Vehicle Classification
 <span class="required">*</span>
 </label>
@@ -296,38 +427,129 @@ Walker
 </select>
 
 <label>
-Concern Type
+Reason for contacting support
 <span class="required">*</span>
 </label>
 
-<select name="concern_type" required>
+<select name="reason" required>
 
 <option value="">
-Select Concern
+Select reason
 </option>
 
 <option>
-Account Issue
+Current earnings issue
 </option>
 
 <option>
-Payment Delay
+Account suspended
 </option>
 
 <option>
-Booking Problem
+Booking issue
 </option>
 
 <option>
-App Error
+Cashout problem
 </option>
 
 <option>
-Order Concern
+Late payment
+</option>
+
+<option>
+App error
 </option>
 
 <option>
 Others
+</option>
+
+</select>
+
+<label>
+Current earnings issue
+</label>
+
+<input
+type="text"
+name="earnings_issue"
+placeholder="Describe earnings issue">
+
+<label>
+Last Booking ID
+</label>
+
+<input
+type="text"
+name="booking_id"
+placeholder="e.g. FD123456789">
+
+<label>
+Priority Level
+<span class="required">*</span>
+</label>
+
+<select name="priority" required>
+
+<option value="">
+How urgent is this?
+</option>
+
+<option>
+Low
+</option>
+
+<option>
+Medium
+</option>
+
+<option>
+High
+</option>
+
+<option>
+Critical
+</option>
+
+</select>
+
+<label>
+How many days unresolved?
+</label>
+
+<select name="days_unresolved">
+
+<option>
+1 Day
+</option>
+
+<option>
+2-3 Days
+</option>
+
+<option>
+1 Week
+</option>
+
+<option>
+More than 1 week
+</option>
+
+</select>
+
+<label>
+Did support already contact you?
+</label>
+
+<select name="support_contact">
+
+<option>
+No
+</option>
+
+<option>
+Yes
 </option>
 
 </select>
@@ -343,11 +565,13 @@ rows="5"
 placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..."
 required></textarea>
 
+<div class="notice">
+📌 Attach proof later via Telegram/Email after support verification.
+</div>
+
 <div class="privacy">
 
-<input
-type="checkbox"
-required>
+<input type="checkbox" required>
 
 <div>
 I agree to the
@@ -394,7 +618,14 @@ All submitted information is strictly encrypted and handled in compliance with t
 
 <script>
 
-const form = document.getElementById('supportForm');
+const randomTicket =
+'PP-' + Math.floor(Math.random()*900000 + 100000);
+
+document.getElementById('ticketNumber')
+.innerHTML = randomTicket;
+
+const form =
+document.getElementById('supportForm');
 
 const submitBtn =
 document.getElementById('submitBtn');
@@ -404,7 +635,8 @@ document.getElementById('successMessage');
 
 form.addEventListener('submit',function(){
 
-    submitBtn.innerHTML = 'Submitting...';
+    submitBtn.innerHTML =
+    'Processing Ticket...';
 
     submitBtn.disabled = true;
 
@@ -417,7 +649,7 @@ form.addEventListener('submit',function(){
 
         submitBtn.disabled = false;
 
-    },2000);
+    },2500);
 
 });
 
