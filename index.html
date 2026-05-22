@@ -1,304 +1,508 @@
 <!DOCTYPE html>
 <html lang="tl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panda Support Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<title>Panda Partner Support</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg,#ffd1e3,#fff5f8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+<style>
 
-        .container {
-            background: rgba(255,255,255,0.88);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 22px;
-            width: 100%;
-            max-width: 420px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-            border: 2px solid #e00067;
-            text-align: center;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Panda */
-        .main-panda {
-            font-size: 75px;
-            display: block;
-            margin-bottom: 10px;
-            animation: bounce 2s infinite;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ffd1e3,#fff5f8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
 
-        @keyframes bounce {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
+.container{
+    width:100%;
+    max-width:420px;
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    border:2px solid #e00067;
+    position:relative;
+    overflow:hidden;
+}
 
-        /* Status */
-        .status {
-            background:#e8fff1;
-            color:#00a651;
-            padding:10px;
-            border-radius:10px;
-            font-size:13px;
-            font-weight:bold;
-            margin-bottom:18px;
-        }
+/* TOP BAR */
 
-        /* Vehicle Row */
-        .vehicle-row {
-            display:flex;
-            justify-content:center;
-            gap:30px;
-            margin:18px 0 25px;
-        }
+.top-bar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:#e00067;
+}
 
-        .vehicle-box {
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-        }
+/* PANDA */
 
-        .vehicle-icon {
-            font-size:30px;
-        }
+.main-panda{
+    font-size:75px;
+    text-align:center;
+    display:block;
+    margin-top:10px;
+    animation:bounce 2s infinite;
+}
 
-        .vehicle-label {
-            font-size:10px;
-            font-weight:bold;
-            color:#e00067;
-            margin-top:5px;
-            letter-spacing:1px;
-        }
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+}
 
-        h2 {
-            color:#e00067;
-            font-size:24px;
-            margin-bottom:20px;
-        }
+/* STATUS */
 
-        form {
-            text-align:left;
-        }
+.status{
+    background:#e8fff1;
+    color:#00a651;
+    padding:10px;
+    border-radius:12px;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    margin:15px 0 20px;
+}
 
-        label {
-            display:block;
-            margin-bottom:6px;
-            font-size:14px;
-            font-weight:bold;
-            color:#333;
-        }
+/* VEHICLE */
 
-        input,
-        textarea,
-        select {
-            width:100%;
-            padding:13px;
-            margin-bottom:16px;
-            border:1px solid #ccc;
-            border-radius:12px;
-            font-size:14px;
-            transition:0.2s ease;
-            background:#fff;
-        }
+.vehicle-row{
+    display:flex;
+    justify-content:space-around;
+    margin-bottom:25px;
+}
 
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color:#e00067;
-            outline:none;
-            box-shadow:0 0 8px rgba(224,0,103,0.25);
-        }
+.vehicle-box{
+    text-align:center;
+}
 
-        textarea {
-            resize:none;
-        }
+.vehicle-icon{
+    font-size:30px;
+}
 
-        .privacy {
-            display:flex;
-            align-items:flex-start;
-            gap:8px;
-            font-size:12px;
-            margin-bottom:18px;
-            color:#555;
-        }
+.vehicle-label{
+    margin-top:5px;
+    font-size:11px;
+    font-weight:bold;
+    color:#e00067;
+}
 
-        .privacy input {
-            width:auto;
-            margin-top:2px;
-        }
+/* TITLE */
 
-        .privacy a {
-            color:#e00067;
-            text-decoration:none;
-            font-weight:bold;
-        }
+h2{
+    text-align:center;
+    color:#e00067;
+    font-size:30px;
+    margin-bottom:5px;
+}
 
-        button {
-            width:100%;
-            padding:15px;
-            background:#e00067;
-            color:white;
-            border:none;
-            border-radius:12px;
-            font-size:16px;
-            font-weight:bold;
-            cursor:pointer;
-            transition:0.2s ease;
-        }
+.subtitle{
+    text-align:center;
+    font-size:13px;
+    color:#666;
+    margin-bottom:25px;
+}
 
-        button:hover {
-            background:#c00058;
-            transform:translateY(-1px);
-        }
+/* FORM */
 
-        .success-message {
-            display:none;
-            background:#e8fff1;
-            color:#00a651;
-            padding:12px;
-            border-radius:10px;
-            margin-top:16px;
-            font-size:14px;
-            text-align:center;
-            font-weight:bold;
-        }
+form{
+    width:100%;
+}
 
-        .footer {
-            font-size:11px;
-            color:#777;
-            margin-top:18px;
-            text-align:center;
-        }
+label{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:bold;
+    color:#333;
+}
 
-        @media(max-width:480px){
-            .vehicle-row{
-                gap:20px;
-            }
+.required{
+    color:#e00067;
+}
 
-            .vehicle-icon{
-                font-size:26px;
-            }
-        }
-    </style>
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:12px;
+    margin-bottom:18px;
+    font-size:14px;
+    background:#fafafa;
+    transition:0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#e00067;
+    background:white;
+    outline:none;
+    box-shadow:0 0 8px rgba(224,0,103,0.2);
+}
+
+textarea{
+    resize:none;
+}
+
+/* FILE */
+
+input[type="file"]{
+    background:white;
+    padding:10px;
+}
+
+/* PRIVACY */
+
+.privacy{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:13px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.privacy input{
+    width:auto;
+    margin-top:3px;
+}
+
+.privacy a{
+    color:#e00067;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* BUTTON */
+
+button{
+    width:100%;
+    padding:15px;
+    background:#e00067;
+    color:white;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#c00058;
+    transform:translateY(-2px);
+}
+
+/* SUCCESS */
+
+.success-message{
+    display:none;
+    background:#e8fff1;
+    color:#00a651;
+    padding:12px;
+    border-radius:12px;
+    margin-top:18px;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    font-size:11px;
+    color:#777;
+    margin-top:20px;
+    line-height:1.5;
+    border-top:1px solid #eee;
+    padding-top:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .container{
+        padding:20px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    .vehicle-icon{
+        font-size:26px;
+    }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <span class="main-panda">🐼</span>
+<div class="top-bar"></div>
 
-        <div class="status">
-            🟢 Support Team Online
-        </div>
+<span class="main-panda">🐼</span>
 
-        <div class="vehicle-row">
-            <div class="vehicle-box">
-                <span class="vehicle-icon">🛵</span>
-                <span class="vehicle-label">RIDER</span>
-            </div>
+<div class="status">
+🟢 Support Team Online
+</div>
 
-            <div class="vehicle-box">
-                <span class="vehicle-icon">🚲</span>
-                <span class="vehicle-label">BIKER</span>
-            </div>
+<div class="vehicle-row">
 
-            <div class="vehicle-box">
-                <span class="vehicle-icon">🚶</span>
-                <span class="vehicle-label">WALKER</span>
-            </div>
-        </div>
+<div class="vehicle-box">
+<div class="vehicle-icon">🛵</div>
+<div class="vehicle-label">RIDER</div>
+</div>
 
-        <h2>Panda Partner Support</h2>
+<div class="vehicle-box">
+<div class="vehicle-icon">🚲</div>
+<div class="vehicle-label">BIKER</div>
+</div>
 
-        <form id="supportForm" action="https://formspree.io/f/mnjrvayw" method="POST" enctype="multipart/form-data">
+<div class="vehicle-box">
+<div class="vehicle-icon">🚶</div>
+<div class="vehicle-label">WALKER</div>
+</div>
 
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+</div>
 
-            <label for="rider_id">Rider ID</label>
-            <input type="text" id="rider_id" name="rider_id" placeholder="Enter your ID Number" required>
+<h2>Panda Partner Support</h2>
 
-            <label for="email">Rider Email</label>
-            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+<div class="subtitle">
+Official Logistics Form & Ticket Submission
+</div>
 
-            <label for="phone">Contact Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="09XXXXXXXXX">
+<form id="supportForm"
+action="https://formspree.io/f/mnjrvayw"
+method="POST"
+enctype="multipart/form-data">
 
-            <label for="type">Concern Type</label>
-            <select id="type" name="type" required>
-                <option value="">Select Concern</option>
-                <option>Account Issue</option>
-                <option>Payment Delay</option>
-                <option>Booking Problem</option>
-                <option>App Error</option>
-                <option>Order Concern</option>
-                <option>Others</option>
-            </select>
+<label>
+Full Name
+<span class="required">*</span>
+</label>
 
-            <label for="concern">Concern</label>
-            <textarea id="concern" name="concern" rows="4" placeholder="Ilarawan ang iyong concern..." required></textarea>
+<input
+type="text"
+name="name"
+placeholder="Juan Dela Cruz"
+required>
 
-            <label for="screenshot">Upload Screenshot</label>
-            <input type="file" id="screenshot" name="screenshot">
+<label>
+Rider ID Number
+<span class="required">*</span>
+</label>
 
-            <label class="privacy">
-                <input type="checkbox" required>
-                <span>
-                    I agree to the
-                    <a href="#">Privacy Policy</a>
-                </span>
-            </label>
+<input
+type="text"
+name="rider_id"
+placeholder="e.g. 1234567"
+required>
 
-            <button type="submit" id="submitBtn">
-                Submit Concern
-            </button>
+<label>
+Registered Email Address
+<span class="required">*</span>
+</label>
 
-            <div class="success-message" id="successMessage">
-                ✅ Your concern has been received.
-            </div>
+<input
+type="email"
+name="email"
+placeholder="yourname@gmail.com"
+required>
 
-            <!-- Anti Spam -->
-            <input type="text" name="company" style="display:none">
+<label>
+Contact Number
+</label>
 
-        </form>
+<input
+type="tel"
+name="phone"
+placeholder="09XXXXXXXXX">
 
-        <p class="footer">
-            © 2026 Panda Support Portal
-        </p>
+<label>
+Vehicle Classification
+<span class="required">*</span>
+</label>
 
-    </div>
+<select name="vehicle_type" required>
 
-    <script>
-        const form = document.getElementById('supportForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successMessage = document.getElementById('successMessage');
+<option value="">
+Select your vehicle type...
+</option>
 
-        form.addEventListener('submit', function(){
-            submitBtn.innerHTML = 'Submitting...';
- 
-           submitBtn.disabled = true;
+<option>
+Motorcycle (Rider)
+</option>
 
-            setTimeout(() => {
-                successMessage.style.display = 'block';
-                submitBtn.innerHTML = 'Submit Concern';
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    </script>
+<option>
+Bicycle (Biker)
+</option>
+
+<option>
+Walker
+</option>
+
+</select>
+
+<label>
+Concern Type
+<span class="required">*</span>
+</label>
+
+<select name="concern_type" required>
+
+<option value="">
+Select Concern
+</option>
+
+<option>
+Account Issue
+</option>
+
+<option>
+Payment Delay
+</option>
+
+<option>
+Booking Problem
+</option>
+
+<option>
+App Error
+</option>
+
+<option>
+Order Concern
+</option>
+
+<option>
+Others
+</option>
+
+</select>
+
+<label>
+Ticket Concern / Details
+<span class="required">*</span>
+</label>
+
+<textarea
+name="concern"
+rows="5"
+placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..."
+required></textarea>
+
+<label>
+Upload Screenshot
+</label>
+
+<input
+type="file"
+name="screenshot">
+
+<div class="privacy">
+
+<input
+type="checkbox"
+required>
+
+<div>
+I agree to the
+<a href="#">Privacy Policy</a>
+</div>
+
+</div>
+
+<button
+type="submit"
+id="submitBtn">
+
+Submit Official Ticket
+
+</button>
+
+<div
+class="success-message"
+id="successMessage">
+
+✅ Your concern has been received.
+
+</div>
+
+</form>
+
+<div class="footer">
+
+<strong>
+Data Privacy & Security Notice:
+</strong>
+
+<br><br>
+
+All submitted information is strictly encrypted and handled in compliance with the Data Privacy Act of 2012.
+
+<br><br>
+
+© 2026 Panda Partner Support
+
+</div>
+
+</div>
+
+<script>
+
+const form = document.getElementById('supportForm');
+
+const submitBtn =
+document.getElementById('submitBtn');
+
+const successMessage =
+document.getElementById('successMessage');
+
+form.addEventListener('submit',function(){
+
+    submitBtn.innerHTML = 'Submitting...';
+
+    submitBtn.disabled = true;
+
+    setTimeout(()=>{
+
+        successMessage.style.display='block';
+
+        submitBtn.innerHTML =
+        'Submit Official Ticket';
+
+        submitBtn.disabled = false;
+
+    },2000);
+
+});
+
+</script>
 
 </body>
 </html>
