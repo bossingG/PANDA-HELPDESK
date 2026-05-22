@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rider support helpdesk</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background-color: #121212; color: #e0e0e0; line-height: 1.5; padding-bottom: 60px; }
+        header { background-color: #1f1f1f; text-align: center; padding: 25px 15px; border-bottom: 3px solid #e21b70; }
+        header h1 { font-size: 1.4rem; color: #ffffff; margin-bottom: 5px; text-transform: lowercase; font-weight: normal; }
+        header p { font-size: 0.85rem; color: #e21b70; font-weight: bold; letter-spacing: 0.5px; }
+        .container { max-width: 500px; margin: 20px auto; padding: 0 15px; }
+        .card { background-color: #1f1f1f; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .card h2 { font-size: 1.1rem; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 8px; color: #fff; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.85rem; margin-bottom: 6px; color: #bbb; }
+        .input-group input, .input-group textarea { width: 100%; padding: 12px; background-color: #2d2d2d; border: 1px solid #444; border-radius: 8px; color: #fff; font-size: 1rem; font-family: sans-serif; }
+        .input-group input:focus, .input-group textarea:focus { border-color: #e21b70; outline: none; }
+        .btn { width: 100%; background-color: #e21b70; color: white; border: none; padding: 14px; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        .btn:hover { background-color: #c1125d; }
+        footer { text-align: center; padding: 15px; color: #555; font-size: 0.75rem; position: fixed; bottom: 0; width: 100%; left: 0; background-color: #121212; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>rider support helpdesk</h1>
+        <p>📩 SUBMIT RIDER CONCERN</p>
+    </header>
+    <main class="container">
+        <section class="card">
+            <h2>📩 Support Ticket Form</h2>
+            <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 15px;">I-type ang iyong kumpletong detalye at concern sa ibaba upang maipadala sa amin.</p>
+            
+            <form action="/submit-concern" method="POST">
+                <div class="input-group">
+                    <label>👤 Full Name:</label>
+                    <input type="text" name="Full_Name" required placeholder="Juan Dela Cruz">
+                </div>
+                <div class="input-group">
+                    <label>🆔 Rider ID:</label>
+                    <input type="text" name="Rider_ID" required placeholder="1234567">
+                </div>
+                <div class="input-group">
+                    <label>📧 Your Rider Email:</label>
+                    <input type="email" name="Rider_Email" required placeholder="name@rider.foodpanda.ph">
+                </div>
+                <div class="input-group">
+                    <label>📝 Concern / Issue Details:</label>
+                    <textarea name="Concern_Message" rows="6" required placeholder="Isulat dito nang malinaw ang iyong concern..."></textarea>
+                </div>
+                <button type="submit" class="btn">🚀 Send Concern</button>
+            </form>
+        </section>
+    </main>
+    <footer><p>Created by shhhh • Ride Safe Ka-Panda!</p></footer>
+</body>
+</html>
