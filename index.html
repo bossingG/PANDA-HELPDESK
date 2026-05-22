@@ -36,8 +36,6 @@ body{
     overflow:hidden;
 }
 
-/* TOP BAR */
-
 .top-bar{
     position:absolute;
     top:0;
@@ -47,26 +45,12 @@ body{
     background:#e00067;
 }
 
-/* PANDA */
-
 .main-panda{
     font-size:75px;
     text-align:center;
     display:block;
     margin-top:10px;
-    animation:bounce 2s infinite;
 }
-
-@keyframes bounce{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-6px);
-    }
-}
-
-/* STATUS */
 
 .status{
     background:#e8fff1;
@@ -78,8 +62,6 @@ body{
     font-weight:bold;
     margin:15px 0 20px;
 }
-
-/* VEHICLE */
 
 .vehicle-row{
     display:flex;
@@ -102,8 +84,6 @@ body{
     color:#e00067;
 }
 
-/* TITLE */
-
 h2{
     text-align:center;
     color:#e00067;
@@ -117,8 +97,6 @@ h2{
     color:#666;
     margin-bottom:25px;
 }
-
-/* FORM */
 
 form{
     width:100%;
@@ -146,30 +124,11 @@ select{
     margin-bottom:18px;
     font-size:14px;
     background:#fafafa;
-    transition:0.2s;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-    border-color:#e00067;
-    background:white;
-    outline:none;
-    box-shadow:0 0 8px rgba(224,0,103,0.2);
 }
 
 textarea{
     resize:none;
 }
-
-/* FILE */
-
-input[type="file"]{
-    background:white;
-    padding:10px;
-}
-
-/* PRIVACY */
 
 .privacy{
     display:flex;
@@ -191,8 +150,6 @@ input[type="file"]{
     text-decoration:none;
 }
 
-/* BUTTON */
-
 button{
     width:100%;
     padding:15px;
@@ -203,15 +160,7 @@ button{
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
-    transition:0.2s;
 }
-
-button:hover{
-    background:#c00058;
-    transform:translateY(-2px);
-}
-
-/* SUCCESS */
 
 .success-message{
     display:none;
@@ -225,8 +174,6 @@ button:hover{
     text-align:center;
 }
 
-/* FOOTER */
-
 .footer{
     text-align:center;
     font-size:11px;
@@ -237,26 +184,7 @@ button:hover{
     padding-top:15px;
 }
 
-/* MOBILE */
-
-@media(max-width:480px){
-
-    .container{
-        padding:20px;
-    }
-
-    h2{
-        font-size:26px;
-    }
-
-    .vehicle-icon{
-        font-size:26px;
-    }
-
-}
-
 </style>
-
 </head>
 
 <body>
@@ -298,8 +226,7 @@ Official Logistics Form & Ticket Submission
 
 <form id="supportForm"
 action="https://formspree.io/f/mnjrvayw"
-method="POST"
-enctype="multipart/form-data">
+method="POST">
 
 <label>
 Full Name
@@ -415,14 +342,6 @@ name="concern"
 rows="5"
 placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..."
 required></textarea>
-
-<label>
-Upload Screenshot
-</label>
-
-<input
-type="file"
-name="screenshot">
 
 <div class="privacy">
 
