@@ -1,45 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rider Support Portal</title>
     <style>
-        :root { --panda-pink: #d70f64; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fce4ec; padding: 20px; color: #333; }
-        .container { max-width: 450px; margin: auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 2px solid var(--panda-pink); }
-        h2 { text-align: center; color: var(--panda-pink); margin-top: 10px; }
-        .logo { text-align: center; font-size: 50px; }
-        label { font-weight: bold; display: block; margin-top: 10px; color: #555; }
-        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 2px solid #eee; border-radius: 10px; box-sizing: border-box; }
-        input:focus, textarea:focus { border-color: var(--panda-pink); outline: none; }
-        button { width: 100%; padding: 15px; background-color: var(--panda-pink); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-        .info { margin-top: 25px; font-size: 0.9em; color: #444; background: #fff5f8; padding: 15px; border-radius: 15px; }
+        body { font-family: sans-serif; background-color: #fce4ec; display: flex; justify-content: center; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #d81b60; color: white; border: none; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">🐼</div>
-        <h2>Rider Support Portal</h2>
-        
-        <form action="https://formspree.io/f/mnjrvayw" method="POST">
-            <label>Name:</label>
+        <h2 style="text-align: center; color: #d81b60;">Rider Support Portal</h2>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
-            <label>Email:</label>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <label>Concern:</label>
-            <textarea name="message" rows="4" placeholder="Ilarawan ang iyong concern..." required></textarea>
+            <input type="text" name="rider_id" placeholder="Rider ID" required>
+            <input type="email" name="email" placeholder="Your Rider Email" required>
+            <textarea name="concern" placeholder="Ilarawan ang iyong concern..." required></textarea>
             <button type="submit">Submit Concern</button>
         </form>
-
-        <div class="info">
-            <p><strong>Tips para sa mga Rider:</strong></p>
-            <ul>
-                <li>Laging mag-check ng "Heat Map" para sa peak demand.</li>
-                <li>Mag-ingat sa pag-accept ng malalayong order kapag rush hour.</li>
-                <li>Iwasan ang paggamit ng mga unofficial third-party apps.</li>
-            </ul>
-        </div>
     </div>
 </body>
 </html>
