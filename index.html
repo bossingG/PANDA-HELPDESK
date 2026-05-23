@@ -6,376 +6,311 @@
 <title>Panda Partner Support</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --pink:#e00067;
-  --pink-light:#fff0f6;
-  --pink-border:#ffc0da;
-  --green:#00a651;
-  --yellow:#fff8e7;
-}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Nunito',sans-serif;
   background:linear-gradient(135deg,#ffd1e3,#fff5f8);
   display:flex;justify-content:center;align-items:flex-start;
-  min-height:100vh;padding:20px 16px 80px;
+  min-height:100vh;padding:20px;
 }
 .container{
-  width:100%;max-width:440px;
+  width:100%;max-width:430px;
   background:white;border-radius:25px;
   padding:25px;box-shadow:0 10px 30px rgba(0,0,0,0.12);
-  border:2px solid var(--pink);position:relative;overflow:hidden;
+  border:2px solid #e00067;position:relative;overflow:hidden;
 }
-.top-bar{position:absolute;top:0;left:0;width:100%;height:6px;background:var(--pink);}
-.main-panda{font-size:70px;text-align:center;display:block;margin-top:10px;animation:bounce 2s infinite;}
+.top-bar{position:absolute;top:0;left:0;width:100%;height:6px;background:#e00067;}
+.main-panda{font-size:75px;text-align:center;display:block;margin-top:10px;animation:bounce 2s infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
-.trust-row{display:flex;justify-content:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap;}
-.trust-badge{
-  display:flex;align-items:center;gap:5px;
-  background:#f4fff9;border:1px solid #b2f0d3;
-  color:#00854a;border-radius:20px;
-  padding:5px 11px;font-size:11px;font-weight:800;
+/* BAGONG STYLE PARA SA SUB-TEXT NG PANDA EMOJI */
+.panda-title-sub{
+  text-align:center;
+  color:#e00067;
+  font-size:16px;
+  font-weight:800;
+  margin-top:-5px;
+  margin-bottom:10px;
+  letter-spacing:0.5px;
 }
 
-.status{background:#e8fff1;color:var(--green);padding:10px;border-radius:12px;text-align:center;font-size:14px;font-weight:bold;margin-bottom:10px;}
-.live-queue{background:var(--pink-light);border:1px solid var(--pink-border);color:var(--pink);padding:12px;border-radius:12px;text-align:center;font-size:13px;font-weight:bold;margin-bottom:18px;line-height:1.6;}
-
-.vehicle-row{display:flex;justify-content:space-around;margin-bottom:20px;}
+.status{background:#e8fff1;color:#00a651;padding:10px;border-radius:12px;text-align:center;font-size:14px;font-weight:bold;margin:15px 0 10px;}
+.live-queue{background:#fff3f8;border:1px solid #ffc0da;color:#e00067;padding:12px;border-radius:12px;text-align:center;font-size:13px;font-weight:bold;margin-bottom:20px;line-height:1.6;}
+.vehicle-row{display:flex;justify-content:space-around;margin-bottom:25px;}
 .vehicle-box{text-align:center;}
-.vehicle-icon{font-size:28px;}
-.vehicle-label{margin-top:4px;font-size:11px;font-weight:800;color:var(--pink);}
-
-h2{text-align:center;color:var(--pink);font-size:28px;margin-bottom:4px;}
-.subtitle{text-align:center;font-size:13px;color:#666;margin-bottom:16px;}
-
-.ticket-box{background:#f9f9f9;border:1px dashed var(--pink);padding:12px;border-radius:12px;text-align:center;margin-bottom:16px;}
-.ticket-number{color:var(--pink);font-size:20px;font-weight:900;margin-top:4px;}
-
-/* STEP INDICATOR */
-.step-indicator{display:flex;align-items:center;justify-content:center;margin-bottom:22px;gap:0;}
-.step-dot{
-  width:34px;height:34px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:900;
-  border:2px solid #ddd;color:#bbb;background:white;
-  transition:all 0.3s;flex-shrink:0;
-}
-.step-dot.active{background:var(--pink);color:white;border-color:var(--pink);}
-.step-dot.done{background:#e8fff1;color:var(--green);border-color:var(--green);}
-.step-line{flex:1;height:3px;background:#eee;max-width:40px;transition:background 0.3s;}
-.step-line.done{background:var(--green);}
-.step-labels{display:flex;justify-content:space-between;margin-top:6px;margin-bottom:18px;}
-.step-label{font-size:10px;font-weight:800;color:#bbb;text-align:center;flex:1;}
-.step-label.active{color:var(--pink);}
-.step-label.done{color:var(--green);}
-
-/* FORM STEPS */
-.form-step{display:none;}
-.form-step.active{display:block;}
-
-label{display:block;margin-bottom:6px;font-size:14px;font-weight:800;color:#333;}
-.required{color:var(--pink);}
-input,textarea,select{
-  width:100%;padding:13px 14px;border:1.5px solid #e0e0e0;
-  border-radius:12px;margin-bottom:16px;font-size:14px;
-  background:#fafafa;font-family:'Nunito',sans-serif;
-  transition:border-color 0.2s;
-}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--pink);}
+.vehicle-icon{font-size:30px;}
+.vehicle-label{margin-top:5px;font-size:11px;font-weight:bold;color:#e00067;}
+h2{text-align:center;color:#e00067;font-size:30px;margin-bottom:5px;}
+.subtitle{text-align:center;font-size:13px;color:#666;margin-bottom:20px;}
+.ticket-box{background:#f9f9f9;border:1px dashed #e00067;padding:12px;border-radius:12px;text-align:center;margin-bottom:20px;}
+.ticket-number{color:#e00067;font-size:20px;font-weight:bold;margin-top:5px;}
+.progress-box{margin-bottom:20px;}
+.progress-label{font-size:12px;color:#555;margin-bottom:8px;}
+.progress-bar{width:100%;height:10px;background:#eee;border-radius:20px;overflow:hidden;}
+.progress{width:78%;height:100%;background:#e00067;animation:loading 2s infinite;}
+@keyframes loading{0%{width:50%;}50%{width:85%;}100%{width:50%;}}
+label{display:block;margin-bottom:6px;font-size:14px;font-weight:bold;color:#333;}
+.required{color:#e00067;}
+input,textarea,select{width:100%;padding:14px;border:1px solid #ccc;border-radius:12px;margin-bottom:18px;font-size:14px;background:#fafafa;font-family:'Nunito',sans-serif;}
 textarea{resize:none;}
+.notice{background:#fff8e7;border:1px solid #ffd86a;padding:12px;border-radius:12px;font-size:13px;color:#7a5a00;margin-bottom:20px;line-height:1.5;}
+.privacy{display:flex;align-items:center;gap:10px;font-size:13px;color:#555;margin-bottom:20px;}
+.privacy input[type="checkbox"]{width:18px;height:18px;margin:0;accent-color:#e00067;flex-shrink:0;}
+.privacy label{display:flex;align-items:center;gap:4px;margin:0;font-weight:normal;}
+.privacy a{color:#e00067;font-weight:bold;text-decoration:none;}
+button{width:100%;padding:15px;background:#e00067;color:white;border:none;border-radius:14px;font-size:16px;font-weight:bold;cursor:pointer;font-family:'Nunito',sans-serif;}
+button:hover{background:#c00058;}
+.success-message{display:none;background:#e8fff1;color:#00a651;padding:12px;border-radius:12px;margin-top:18px;font-size:14px;font-weight:bold;text-align:center;}
+.footer{text-align:center;font-size:11px;color:#777;margin-top:20px;line-height:1.5;border-top:1px solid #eee;padding-top:15px;}
 
-.notice{background:var(--yellow);border:1px solid #ffd86a;padding:12px;border-radius:12px;font-size:13px;color:#7a5a00;margin-bottom:18px;line-height:1.5;}
-.privacy{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#555;margin-bottom:20px;}
-.privacy input[type="checkbox"]{width:18px;height:18px;margin:0;margin-top:2px;accent-color:var(--pink);flex-shrink:0;}
-.privacy label{display:inline;margin:0;font-weight:600;}
-.privacy a{color:var(--pink);font-weight:800;text-decoration:none;}
-
-.btn-row{display:flex;gap:10px;margin-top:4px;}
-.btn-back{
-  padding:14px 20px;background:white;color:var(--pink);
-  border:2px solid var(--pink);border-radius:14px;
-  font-size:15px;font-weight:800;cursor:pointer;
-  font-family:'Nunito',sans-serif;transition:all 0.15s;
-}
-.btn-back:hover{background:var(--pink-light);}
-.btn-next,.btn-submit{
-  flex:1;padding:14px;background:var(--pink);color:white;
-  border:none;border-radius:14px;font-size:15px;font-weight:800;
-  cursor:pointer;font-family:'Nunito',sans-serif;transition:background 0.15s;
-}
-.btn-next:hover,.btn-submit:hover{background:#c00058;}
-
-/* SUCCESS SCREEN */
-.success-screen{
-  display:none;text-align:center;padding:10px 0;
-}
-.success-screen.show{display:block;}
-.success-icon{font-size:70px;animation:pop 0.4s ease;}
-@keyframes pop{0%{transform:scale(0.5);}80%{transform:scale(1.15);}100%{transform:scale(1);}}
-.success-title{font-size:22px;font-weight:900;color:var(--green);margin:12px 0 6px;}
-.success-sub{font-size:13px;color:#666;margin-bottom:20px;line-height:1.6;}
-.what-next{background:#f4fff9;border:1px solid #b2f0d3;border-radius:14px;padding:16px;text-align:left;}
-.what-next h4{color:var(--green);font-size:13px;font-weight:900;margin-bottom:10px;}
-.what-next-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:12px;color:#444;line-height:1.5;}
-.what-next-item .step-num{
-  background:var(--pink);color:white;border-radius:50%;
-  width:20px;height:20px;display:flex;align-items:center;
-  justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;margin-top:1px;
-}
-
-.footer{text-align:center;font-size:11px;color:#888;margin-top:20px;line-height:1.6;border-top:1px solid #eee;padding-top:14px;}
-
-/* NOTIFICATIONS */
+/* ===== LIVE NOTIFICATIONS (upper-left pop-ups) ===== */
 #notif-container{
   position:fixed;top:16px;left:16px;
-  display:flex;flex-direction:column;gap:8px;
-  z-index:9999;pointer-events:none;width:255px;
+  display:flex;flex-direction:column;gap:10px;
+  z-index:9999;pointer-events:none;
+  width:260px;
 }
 .notif-card{
-  background:white;border-left:4px solid var(--pink);
-  border-radius:12px;padding:10px 13px;
-  box-shadow:0 4px 18px rgba(0,0,0,0.13);
-  font-family:'Nunito',sans-serif;font-size:12px;color:#333;
-  opacity:0;transform:translateX(-30px);
-  transition:opacity 0.35s ease,transform 0.35s ease;line-height:1.5;
+  background:white;
+  border-left:4px solid #e00067;
+  border-radius:12px;
+  padding:10px 14px;
+  box-shadow:0 4px 18px rgba(0,0,0,0.15);
+  font-family:'Nunito',sans-serif;
+  font-size:12px;
+  color:#333;
+  opacity:0;
+  transform:translateX(-30px);
+  transition:opacity 0.4s ease,transform 0.4s ease;
+  line-height:1.5;
 }
 .notif-card.show{opacity:1;transform:translateX(0);}
 .notif-card.hide{opacity:0;transform:translateX(-30px);}
-.notif-header{display:flex;align-items:center;gap:6px;margin-bottom:3px;}
-.notif-dot{width:7px;height:7px;border-radius:50%;background:#00c853;flex-shrink:0;animation:pdot 1.5s infinite;}
-@keyframes pdot{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.notif-name{font-weight:900;font-size:12px;color:var(--pink);}
-.notif-city{font-size:10px;color:#aaa;font-weight:700;margin-left:auto;}
-.notif-body{color:#555;font-size:11px;}
-.notif-time{font-size:10px;color:#ccc;margin-top:3px;}
+.notif-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.notif-dot{width:8px;height:8px;border-radius:50%;background:#00c853;flex-shrink:0;animation:pulse-dot 1.5s infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.notif-name{font-weight:800;font-size:13px;color:#e00067;}
+.notif-city{font-size:11px;color:#999;font-weight:600;}
+.notif-body{color:#555;}
+.notif-time{font-size:10px;color:#bbb;margin-top:4px;}
 
-/* CHAT */
+/* ===== LIVE CHAT WIDGET ===== */
 #chat-toggle{
   position:fixed;bottom:24px;right:24px;
-  width:58px;height:58px;background:var(--pink);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;box-shadow:0 4px 20px rgba(224,0,103,0.45);
-  z-index:10000;transition:transform 0.2s;
+  width:60px;height:60px;
+  background:#e00067;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  box-shadow:0 4px 20px rgba(224,0,103,0.5);
+  z-index:10000;
+  transition:transform 0.2s;
 }
 #chat-toggle:hover{transform:scale(1.08);}
-#chat-toggle .chat-icon{font-size:24px;}
+#chat-toggle .chat-icon{font-size:26px;}
 #chat-badge{
-  position:absolute;top:-3px;right:-3px;
-  background:#ff3e3e;color:white;font-family:'Nunito',sans-serif;
-  font-size:10px;font-weight:900;width:19px;height:19px;
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  position:absolute;top:-4px;right:-4px;
+  background:#ff3e3e;color:white;
+  font-family:'Nunito',sans-serif;
+  font-size:11px;font-weight:800;
+  width:20px;height:20px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
   border:2px solid white;
 }
+
 #chat-box{
-  position:fixed;bottom:94px;right:24px;width:310px;height:430px;
-  background:white;border-radius:20px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.16);
-  border:2px solid var(--pink);
-  display:flex;flex-direction:column;z-index:10000;overflow:hidden;
-  transform:scale(0.85) translateY(20px);opacity:0;pointer-events:none;
-  transition:all 0.3s cubic-bezier(.4,0,.2,1);transform-origin:bottom right;
+  position:fixed;bottom:96px;right:24px;
+  width:320px;height:440px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.18);
+  border:2px solid #e00067;
+  display:flex;flex-direction:column;
+  z-index:10000;
+  overflow:hidden;
+  transform:scale(0.85) translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.3s cubic-bezier(.4,0,.2,1);
+  transform-origin:bottom right;
   font-family:'Nunito',sans-serif;
 }
 #chat-box.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
-.chat-header{background:var(--pink);color:white;padding:13px 15px;display:flex;align-items:center;gap:10px;}
-.chat-header-avatar{font-size:26px;}
+
+.chat-header{
+  background:#e00067;color:white;
+  padding:14px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.chat-header-avatar{font-size:28px;}
 .chat-header-info{flex:1;}
-.chat-header-info .name{font-weight:900;font-size:14px;}
+.chat-header-info .name{font-weight:800;font-size:15px;}
 .chat-header-info .sub{font-size:11px;opacity:0.85;}
-.chat-close{cursor:pointer;font-size:18px;opacity:0.8;}
+.chat-close{cursor:pointer;font-size:20px;opacity:0.8;}
 .chat-close:hover{opacity:1;}
-.chat-messages{flex:1;overflow-y:auto;padding:13px;display:flex;flex-direction:column;gap:9px;background:#fafafa;}
-.chat-messages::-webkit-scrollbar{width:3px;}
-.chat-messages::-webkit-scrollbar-thumb{background:var(--pink-border);border-radius:4px;}
-.msg{max-width:84%;}
+
+.chat-messages{
+  flex:1;overflow-y:auto;padding:14px;
+  display:flex;flex-direction:column;gap:10px;
+  background:#fafafa;
+}
+.chat-messages::-webkit-scrollbar{width:4px;}
+.chat-messages::-webkit-scrollbar-thumb{background:#ffc0da;border-radius:4px;}
+
+.msg{max-width:82%;line-height:1.45;}
 .msg.bot{align-self:flex-start;}
 .msg.user{align-self:flex-end;}
-.msg-bubble{padding:9px 12px;border-radius:14px;font-size:13px;line-height:1.45;}
-.msg.bot .msg-bubble{background:white;color:#333;border:1px solid #eee;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
-.msg.user .msg-bubble{background:var(--pink);color:white;border-bottom-right-radius:4px;}
-.msg-time{font-size:10px;color:#bbb;margin-top:3px;}
+.msg-bubble{
+  padding:9px 13px;border-radius:14px;font-size:13px;
+}
+.msg.bot .msg-bubble{
+  background:white;color:#333;
+  border:1px solid #eee;border-bottom-left-radius:4px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+.msg.user .msg-bubble{
+  background:#e00067;color:white;
+  border-bottom-right-radius:4px;
+}
+.msg-time{font-size:10px;color:#bbb;margin-top:3px;text-align:right;}
 .msg.bot .msg-time{text-align:left;}
-.msg.user .msg-time{text-align:right;}
+
 .typing-indicator{align-self:flex-start;}
-.typing-indicator .msg-bubble{background:white;border:1px solid #eee;display:flex;align-items:center;gap:4px;padding:10px 13px;}
-.typing-dot{width:6px;height:6px;background:var(--pink);border-radius:50%;animation:typing 1.2s infinite;}
+.typing-indicator .msg-bubble{
+  background:white;border:1px solid #eee;
+  display:flex;align-items:center;gap:4px;
+  padding:10px 14px;
+}
+.typing-dot{width:7px;height:7px;background:#e00067;border-radius:50%;animation:typing 1.2s infinite;}
 .typing-dot:nth-child(2){animation-delay:0.2s;}
 .typing-dot:nth-child(3){animation-delay:0.4s;}
 @keyframes typing{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-5px);}}
-.chat-quick-replies{display:flex;flex-wrap:wrap;gap:5px;padding:7px 12px 0;}
-.quick-btn{
-  background:white;border:1.5px solid var(--pink);color:var(--pink);
-  border-radius:20px;padding:5px 10px;font-size:11px;font-weight:800;
-  cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.15s;
-}
-.quick-btn:hover{background:var(--pink);color:white;}
-.chat-input-row{display:flex;align-items:center;gap:7px;padding:9px 11px;border-top:1px solid #f0f0f0;background:white;}
-.chat-input-row input{flex:1;padding:9px 13px;border:1.5px solid #eee;border-radius:20px;font-size:13px;background:#fafafa;margin-bottom:0;font-family:'Nunito',sans-serif;}
-.chat-input-row input:focus{outline:none;border-color:var(--pink);}
-.chat-send{width:34px;height:34px;background:var(--pink);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;transition:background 0.15s;}
-.chat-send:hover{background:#c00058;}
 
-/* BOT NUDGE */
-#bot-nudge{
-  position:fixed;bottom:94px;right:24px;
-  background:white;border:2px solid var(--pink);border-radius:16px;
-  padding:12px 15px;max-width:230px;font-size:13px;
-  box-shadow:0 4px 20px rgba(224,0,103,0.2);
-  z-index:9999;font-family:'Nunito',sans-serif;line-height:1.5;
-  opacity:0;transform:translateY(10px);
-  transition:all 0.3s;pointer-events:none;
+.chat-quick-replies{
+  display:flex;flex-wrap:wrap;gap:6px;
+  padding:8px 14px 0;
 }
-#bot-nudge.show{opacity:1;transform:translateY(0);pointer-events:all;}
-#bot-nudge strong{color:var(--pink);}
-#bot-nudge .nudge-close{position:absolute;top:6px;right:10px;font-size:13px;cursor:pointer;color:#bbb;}
+.quick-btn{
+  background:white;border:1.5px solid #e00067;
+  color:#e00067;border-radius:20px;
+  padding:5px 11px;font-size:11px;font-weight:700;
+  cursor:pointer;font-family:'Nunito',sans-serif;
+  transition:all 0.15s;
+}
+.quick-btn:hover{background:#e00067;color:white;}
+
+.chat-input-row{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 12px;border-top:1px solid #f0f0f0;
+  background:white;
+}
+.chat-input-row input{
+  flex:1;padding:10px 14px;border:1.5px solid #eee;
+  border-radius:20px;font-size:13px;background:#fafafa;
+  margin-bottom:0;font-family:'Nunito',sans-serif;
+}
+.chat-input-row input:focus{outline:none;border-color:#e00067;}
+.chat-send{
+  width:36px;height:36px;background:#e00067;
+  border:none;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:16px;transition:background 0.15s;
+}
+.chat-send:hover{background:#c00058;}
 </style>
 </head>
 <body>
 
 <div id="notif-container"></div>
 
-<div id="bot-nudge">
-  <span class="nudge-close" onclick="dismissNudge()">✕</span>
-  🐼 <strong>Kamusta!</strong> May concern ka ba? Puwede kitang tulungan mag-submit ng ticket ngayon! 😊
-</div>
-
 <div class="container">
   <div class="top-bar"></div>
   <span class="main-panda">🐼</span>
-
-  <div class="trust-row">
-    <div class="trust-badge">🔒 SSL Secured</div>
-    <div class="trust-badge">✅ Verified Support</div>
-    <div class="trust-badge">🛡️ Data Protected</div>
+  <div class="panda-title-sub">Foodpanda Rider Support</div>
+  
+  <div class="status">🟢 Support Team Online</div>
+  <div class="live-queue">
+    🚨 <span id="rider-count">342</span> riders currently waiting<br>
+    ⏱ Estimated response: 3-5 minutes
   </div>
-
-  <div class="status">🟢 Support Team Online — Avg. reply: 3-5 mins</div>
-  <div class="live-queue">🚨 <span id="queueCount">92</span> riders currently waiting &nbsp;·&nbsp; ⏱ Response: 3-5 mins</div>
-
   <div class="vehicle-row">
     <div class="vehicle-box"><div class="vehicle-icon">🛵</div><div class="vehicle-label">RIDER</div></div>
     <div class="vehicle-box"><div class="vehicle-icon">🚲</div><div class="vehicle-label">BIKER</div></div>
     <div class="vehicle-box"><div class="vehicle-icon">🚶</div><div class="vehicle-label">WALKER</div></div>
   </div>
-
   <h2>Panda Partner Support</h2>
   <div class="subtitle">Official Logistics Form & Ticket Submission</div>
-
-  <div class="ticket-box">
-    Ticket Number
-    <div class="ticket-number" id="ticketNumber">PP-000000</div>
+  <div class="ticket-box">Ticket Number<div class="ticket-number" id="ticketNumber">PP-000000</div></div>
+  <div class="progress-box">
+    <div class="progress-label">System Queue Processing...</div>
+    <div class="progress-bar"><div class="progress"></div></div>
   </div>
 
-  <!-- STEP INDICATOR -->
-  <div class="step-indicator">
-    <div class="step-dot active" id="sd1">1</div>
-    <div class="step-line" id="sl1"></div>
-    <div class="step-dot" id="sd2">2</div>
-  </div>
-  <div class="step-labels">
-    <div class="step-label active" id="sl-1">Personal Info</div>
-    <div class="step-label" id="sl-2">Issue Details & Submit</div>
-  </div>
-
-  <!-- SUCCESS SCREEN -->
-  <div class="success-screen" id="successScreen">
-    <div class="success-icon">✅</div>
-    <div class="success-title">Ticket Submitted!</div>
-    <div class="success-sub">
-      Ticket <strong id="confirmedTicket"></strong> ay natanggap na.<br>
-      Mag-aantay ng sagot sa inyong email sa loob ng <strong>24-48 hours</strong>.
-    </div>
-    <div class="what-next">
-      <h4>📋 Ano ang mangyayari ngayon?</h4>
-      <div class="what-next-item"><div class="step-num">1</div><div>Matatanggap mo ang <strong>confirmation email</strong> na may ticket number.</div></div>
-      <div class="what-next-item"><div class="step-num">2</div><div>Ire-review ng aming <strong>Support Team</strong> ang iyong concern sa loob ng 24 hours.</div></div>
-      <div class="what-next-item"><div class="step-num">3</div><div>Makikipag-ugnayan sa iyo ang agent via <strong>email o app notification</strong>.</div></div>
-      <div class="what-next-item"><div class="step-num">4</div><div>I-attach ang proof documents via <strong>Telegram o Email</strong> kapag hiningi.</div></div>
-    </div>
-  </div>
-
-  <!-- FORM -->
   <form id="supportForm" action="https://formspree.io/f/mnjrvayw" method="POST">
-    <input type="hidden" name="_subject" value="New Panda Partner Ticket">
-    <input type="hidden" name="_captcha" value="false">
-
-    <!-- STEP 1 -->
-    <div class="form-step active" id="step1">
-      <label>Full Name <span class="required">*</span></label>
-      <input type="text" name="name" id="f_name" placeholder="Juan Dela Cruz" required>
-      <label>Rider ID Number <span class="required">*</span></label>
-      <input type="text" name="rider_id" id="f_rid" placeholder="e.g. 1234567" required>
-      <label>Registered Email Address <span class="required">*</span></label>
-      <input type="email" name="email" id="f_email" placeholder="yourname@gmail.com" required>
-      <label>Contact Number</label>
-      <input type="tel" name="phone" placeholder="09XXXXXXXXX">
-      <label>Area / City <span class="required">*</span></label>
-      <input type="text" name="city" placeholder="Quezon City" required>
-      <label>Vehicle Classification <span class="required">*</span></label>
-      <select name="vehicle_type" required>
-        <option value="">Select your vehicle type...</option>
-        <option>Motorcycle (Rider)</option>
-        <option>Bicycle (Biker)</option>
-        <option>Walker</option>
-      </select>
-      <div class="btn-row">
-        <button type="button" class="btn-next" onclick="goStep(2)">Next: Issue Details →</button>
-      </div>
+    <input type="hidden" name="generated_ticket_id" id="hiddenTicketInput">
+    
+    <label>Full Name <span class="required">*</span></label>
+    <input type="text" name="name" placeholder="Juan Dela Cruz" required>
+    <label>Rider ID Number <span class="required">*</span></label>
+    <input type="text" name="rider_id" placeholder="e.g. 1234567" required>
+    <label>Registered Email Address <span class="required">*</span></label>
+    <input type="email" name="email" placeholder="yourname@gmail.com" required>
+    <label>Contact Number</label>
+    <input type="tel" name="phone" placeholder="09XXXXXXXXX">
+    <label>Area / City <span class="required">*</span></label>
+    <input type="text" name="city" placeholder="Quezon City" required>
+    <label>Vehicle Classification <span class="required">*</span></label>
+    <select name="vehicle_type" required>
+      <option value="">Select your vehicle type...</option>
+      <option>Motorcycle (Rider)</option>
+      <option>Bicycle (Biker)</option>
+      <option>Walker</option>
+    </select>
+    <label>Reason for contacting support <span class="required">*</span></label>
+    <select name="reason" required>
+      <option value="">Select reason</option>
+      <option>Current earnings issue</option>
+      <option>Account suspended</option>
+      <option>Booking issue</option>
+      <option>Cashout problem</option>
+      <option>Late payment</option>
+      <option>App error</option>
+      <option>Others</option>
+    </select>
+    <label>Current earnings issue</label>
+    <input type="text" name="earnings_issue" placeholder="Describe earnings issue">
+    <label>Last Booking ID</label>
+    <input type="text" name="booking_id" placeholder="e.g. FD123456789">
+    <label>Priority Level <span class="required">*</span></label>
+    <select name="priority" required>
+      <option value="">How urgent is this?</option>
+      <option>Low</option><option>Medium</option><option>High</option><option>Critical</option>
+    </select>
+    <label>How many days unresolved?</label>
+    <select name="days_unresolved">
+      <option>1 Day</option><option>2-3 Days</option><option>1 Week</option><option>More than 1 week</option>
+    </select>
+    <label>Did support already contact you?</label>
+    <select name="support_contact"><option>No</option><option>Yes</option></select>
+    <label>Ticket Concern / Details <span class="required">*</span></label>
+    <textarea name="concern" rows="5" placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..." required></textarea>
+    <div class="notice">📌 Attach proof later via Telegram/Email after support verification.</div>
+    <div class="privacy">
+      <input type="checkbox" required>
+      <label>I agree to the <a href="#">Privacy Policy</a></label>
     </div>
-
-    <!-- STEP 2 -->
-    <div class="form-step" id="step2">
-      <label>Reason for contacting support <span class="required">*</span></label>
-      <select name="reason" required>
-        <option value="">Select reason</option>
-        <option>Current earnings issue</option>
-        <option>Account suspended</option>
-        <option>Booking issue</option>
-        <option>Cashout problem</option>
-        <option>Late payment</option>
-        <option>App error</option>
-        <option>Others</option>
-      </select>
-      <label>Current earnings issue</label>
-      <input type="text" name="earnings_issue" placeholder="Describe earnings issue">
-      <label>Last Booking ID</label>
-      <input type="text" name="booking_id" placeholder="e.g. FD123456789">
-      <label>Priority Level <span class="required">*</span></label>
-      <select name="priority" required>
-        <option value="">How urgent is this?</option>
-        <option>Low</option><option>Medium</option><option>High</option><option>Critical</option>
-      </select>
-      <label>How many days unresolved?</label>
-      <select name="days_unresolved">
-        <option>1 Day</option><option>2-3 Days</option><option>1 Week</option><option>More than 1 week</option>
-      </select>
-      <label>Did support already contact you?</label>
-      <select name="support_contact"><option>No</option><option>Yes</option></select>
-      <label>Ticket Concern / Details <span class="required">*</span></label>
-      <textarea name="concern" rows="5" placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..." required></textarea>
-      <div class="notice">📌 Attach proof later via Telegram/Email after support verification.</div>
-      <div class="privacy">
-        <input type="checkbox" id="privacyCheck" required>
-        <label for="privacyCheck">I agree to the <a href="#">Privacy Policy</a> and consent to processing of my personal data under RA 10173.</label>
-      </div>
-      <div class="btn-row">
-        <button type="button" class="btn-back" onclick="goStep(1)">← Back</button>
-        <button type="submit" class="btn-submit" id="submitBtn">🐼 Submit Official Ticket</button>
-      </div>
-    </div>
-
+    <button type="submit" id="submitBtn">Submit Official Ticket</button>
+    <div class="success-message" id="successMessage">✅ Your concern has been received.</div>
   </form>
 
   <div class="footer">
     <strong>Data Privacy & Security Notice:</strong><br><br>
-    All submitted information is strictly encrypted and handled in compliance with the Data Privacy Act of 2012 (RA 10173). Your data will only be used for support resolution purposes.<br><br>
-    🔒 256-bit SSL Encrypted &nbsp;|&nbsp; ✅ 1,247 tickets resolved this week<br><br>
+    All submitted information is strictly encrypted and handled in compliance with the Data Privacy Act of 2012.<br><br>
     © 2026 Panda Partner Support
   </div>
 </div>
 
-<!-- CHAT TOGGLE -->
 <div id="chat-toggle" onclick="toggleChat()">
   <span class="chat-icon">💬</span>
   <div id="chat-badge">1</div>
@@ -385,8 +320,8 @@ textarea{resize:none;}
   <div class="chat-header">
     <div class="chat-header-avatar">🐼</div>
     <div class="chat-header-info">
-      <div class="name">PandaBot Support</div>
-      <div class="sub">🟢 Online · ~3 min reply</div>
+      <div class="name">Panda Support</div>
+      <div class="sub">🟢 Online · Replies in ~3 mins</div>
     </div>
     <div class="chat-close" onclick="toggleChat()">✕</div>
   </div>
@@ -404,171 +339,197 @@ textarea{resize:none;}
 </div>
 
 <script>
-// TICKET
-const ticketNo = 'PP-' + Math.floor(Math.random()*900000+100000);
-document.getElementById('ticketNumber').innerHTML = ticketNo;
+// ===== TICKET NUMBER GENERATION =====
+const tNumber = 'PP-' + Math.floor(Math.random()*900000+100000);
+document.getElementById('ticketNumber').innerHTML = tNumber;
+document.getElementById('hiddenTicketInput').value = tNumber;
 
-// QUEUE COUNTER — slowly increments/decrements randomly
-let qCount = 92;
-setInterval(()=>{
-  qCount += Math.random()>0.5 ? 1 : -1;
-  if(qCount<80) qCount=80;
-  if(qCount>110) qCount=110;
-  document.getElementById('queueCount').textContent = qCount;
-}, 4000);
+// ===== FORM SUBMIT =====
+const form = document.getElementById('supportForm');
+const submitBtn = document.getElementById('submitBtn');
+const successMessage = document.getElementById('successMessage');
 
-// STEP NAVIGATION
-function goStep(n){
-  document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
-  document.getElementById('step'+n).classList.add('active');
-  for(let i=1;i<=2;i++){
-    const dot=document.getElementById('sd'+i);
-    const lbl=document.getElementById('sl-'+i);
-    dot.classList.remove('active','done');
-    lbl.classList.remove('active','done');
-    if(i<n){dot.classList.add('done');dot.innerHTML='✓';lbl.classList.add('done');}
-    else if(i===n){dot.classList.add('active');dot.innerHTML=i;lbl.classList.add('active');}
-    else{dot.innerHTML=i;}
-  }
-  const line=document.getElementById('sl1');
-  line.classList.toggle('done', n>1);
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  submitBtn.innerHTML = 'Processing Ticket...';
+  submitBtn.disabled = true;
 
-// FORM SUBMIT
-document.getElementById('supportForm').addEventListener('submit',async function(e){
-  e.preventDefault();
-  const btn=document.getElementById('submitBtn');
-  btn.innerHTML='⏳ Processing...';
-  btn.disabled=true;
-  const formData=new FormData(this);
-  formData.append('ticket_number', ticketNo);
-  try{
-    const res=await fetch(this.action,{
-      method:'POST',
-      body:formData,
-      headers:{Accept:'application/json'}
-    });
-    if(res.ok){
-      document.getElementById('supportForm').style.display='none';
-      document.querySelector('.step-indicator').style.display='none';
-      document.querySelector('.step-labels').style.display='none';
-      document.getElementById('confirmedTicket').textContent=ticketNo;
-      document.getElementById('successScreen').classList.add('show');
-    } else {
-      const data=await res.json().catch(()=>({}));
-      const msg=(data&&data.errors)?data.errors.map(x=>x.message).join(', '):'Please try again.';
-      alert('❌ Submission failed: '+msg);
-      btn.innerHTML='🐼 Submit Official Ticket';
-      btn.disabled=false;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
     }
-  }catch(err){
-    alert('❌ Network error. Please check your connection and try again.');
-    btn.innerHTML='🐼 Submit Official Ticket';
-    btn.disabled=false;
-  }
+  })
+  .then(response => {
+    if (response.ok) {
+      successMessage.style.display = 'block';
+      successMessage.innerHTML = '✅ Your concern has been received. Check your email shortly.';
+      form.reset();
+    } else {
+      alert('May problema sa pagpapadala. Pakisuri ang iyong koneksyon.');
+    }
+  })
+  .catch(error => {
+    alert('Network error. Hindi maipadala ang ticket ngayon.');
+  })
+  .finally(() => {
+    submitBtn.innerHTML = 'Submit Official Ticket';
+    submitBtn.disabled = false;
+  });
 });
 
-// BOT NUDGE after 10s
-setTimeout(()=>{
-  const nudge=document.getElementById('bot-nudge');
-  nudge.classList.add('show');
-  setTimeout(()=>nudge.classList.remove('show'),8000);
-},10000);
-function dismissNudge(){document.getElementById('bot-nudge').classList.remove('show');}
-
-// NOTIFICATIONS
+// ===== FAKE RIDER NOTIFICATIONS =====
 const riders=[
-  {name:"Mark S.",city:"Quezon City",vehicle:"🛵",issue:"Late payment"},
-  {name:"Jenny L.",city:"Makati",vehicle:"🚲",issue:"Cashout problem"},
-  {name:"Carlo R.",city:"Cebu City",vehicle:"🛵",issue:"Account suspended"},
-  {name:"Ana P.",city:"Davao",vehicle:"🚶",issue:"Booking issue"},
-  {name:"Rico T.",city:"Caloocan",vehicle:"🛵",issue:"App error"},
-  {name:"Liza M.",city:"Pasig",vehicle:"🚲",issue:"Earnings issue"},
-  {name:"Jun B.",city:"Marikina",vehicle:"🛵",issue:"Late payment"},
-  {name:"Grace N.",city:"Taguig",vehicle:"🚶",issue:"Cashout problem"},
-  {name:"Bong D.",city:"Mandaluyong",vehicle:"🛵",issue:"Account suspended"},
-  {name:"Sheila V.",city:"Parañaque",vehicle:"🚲",issue:"Booking issue"},
-  {name:"Rodel F.",city:"Las Piñas",vehicle:"🛵",issue:"App error"},
-  {name:"Maricel O.",city:"Bacoor, Cavite",vehicle:"🚶",issue:"Earnings issue"},
-  {name:"Emman G.",city:"Valenzuela",vehicle:"🛵",issue:"Late payment"},
-  {name:"Nena C.",city:"Malabon",vehicle:"🚲",issue:"Cashout problem"},
-  {name:"Jomar I.",city:"Navotas",vehicle:"🛵",issue:"Account suspended"},
-  {name:"Tess H.",city:"San Juan",vehicle:"🚶",issue:"Booking issue"},
-  {name:"Aldrin K.",city:"Antipolo",vehicle:"🛵",issue:"App error"},
-  {name:"Marianne Q.",city:"Cainta, Rizal",vehicle:"🚲",issue:"Earnings issue"},
-  {name:"Freddie W.",city:"Iloilo City",vehicle:"🛵",issue:"Late payment"},
-  {name:"Vanessa Y.",city:"CDO",vehicle:"🚶",issue:"Cashout problem"},
-  {name:"Ric P.",city:"Batangas City",vehicle:"🛵",issue:"Booking issue"},
-  {name:"Alma T.",city:"Santa Rosa, Laguna",vehicle:"🚲",issue:"App error"},
+  {name:"Mark S.",city:"Quezon City",vehicle:"🛵",issue:"Late payment",time:"just now"},
+  {name:"Jenny L.",city:"Makati",vehicle:"🚲",issue:"Cashout problem",time:"just now"},
+  {name:"Carlo R.",city:"Cebu City",vehicle:"🛵",issue:"Account suspended",time:"just now"},
+  {name:"Ana P.",city:"Davao",vehicle:"🚶",issue:"Booking issue",time:"just now"},
+  {name:"Rico T.",city:"Caloocan",vehicle:"🛵",issue:"App error",time:"just now"},
+  {name:"Liza M.",city:"Pasig",vehicle:"🚲",issue:"Earnings issue",time:"just now"},
+  {name:"Jun B.",city:"Marikina",vehicle:"🛵",issue:"Late payment",time:"just now"},
+  {name:"Grace N.",city:"Taguig",vehicle:"🚶",issue:"Cashout problem",time:"just now"},
+  {name:"Bong D.",city:"Mandaluyong",vehicle:"🛵",issue:"Account suspended",time:"just now"},
+  {name:"Sheila V.",city:"Paranaque",vehicle:"🚲",issue:"Booking issue",time:"just now"},
+  {name:"Rodel F.",city:"Las Pinas",vehicle:"🛵",issue:"App error",time:"just now"},
+  {name:"Maricel O.",city:"Bacoor, Cavite",vehicle:"🚶",issue:"Earnings issue",time:"just now"},
+  {name:"Emman G.",city:"Valenzuela",vehicle:"🛵",issue:"Late payment",time:"just now"},
+  {name:"Nena C.",city:"Malabon",vehicle:"🚲",issue:"Cashout problem",time:"just now"},
+  {name:"Jomar I.",city:"Navotas",vehicle:"🛵",issue:"Account suspended",time:"just now"},
+  {name:"Tess H.",city:"San Juan",vehicle:"🚶",issue:"Booking issue",time:"just now"},
+  {name:"Aldrin K.",city:"Antipolo",vehicle:"🛵",issue:"App error",time:"just now"},
+  {name:"Marianne Q.",city:"Cainta, Rizal",vehicle:"🚲",issue:"Earnings issue",time:"just now"},
+  {name:"Freddie W.",city:"Iloilo City",vehicle:"🛵",issue:"Late payment",time:"just now"},
+  {name:"Vanessa Y.",city:"Cagayan de Oro",vehicle:"🚶",issue:"Cashout problem",time:"just now"},
 ];
+
 const notifContainer=document.getElementById('notif-container');
-let nIdx=0,activeNotifs=[];
+const riderCountEl=document.getElementById('rider-count');
+let notifIndex=0;
+let activeNotifs=[];
+
 function showNotif(){
-  const r=riders[nIdx%riders.length]; nIdx++;
+  const r=riders[notifIndex%riders.length];
+  notifIndex++;
   const card=document.createElement('div');
   card.className='notif-card';
   const now=new Date();
   const t=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
-  card.innerHTML=`<div class="notif-header"><div class="notif-dot"></div><span class="notif-name">${r.vehicle} ${r.name}</span><span class="notif-city">${r.city}</span></div><div class="notif-body">Ticket: <strong>${r.issue}</strong></div><div class="notif-time">⏰ ${t}</div>`;
+  card.innerHTML=`
+    <div class="notif-header">
+      <div class="notif-dot"></div>
+      <span class="notif-name">${r.vehicle} ${r.name}</span>
+      <span class="notif-city">${r.city}</span>
+    </div>
+    <div class="notif-body">Ticket submitted: <strong>${r.issue}</strong></div>
+    <div class="notif-time">⏰ ${t}</div>
+  `;
   notifContainer.prepend(card);
   activeNotifs.unshift(card);
-  if(activeNotifs.length>3){const old=activeNotifs.pop();old.classList.add('hide');setTimeout(()=>old.remove(),400);}
-  requestAnimationFrame(()=>requestAnimationFrame(()=>card.classList.add('show')));
-  setTimeout(()=>{card.classList.add('hide');setTimeout(()=>{card.remove();const i=activeNotifs.indexOf(card);if(i>-1)activeNotifs.splice(i,1);},400);},5500);
-}
-setTimeout(()=>showNotif(),1500);
-function scheduleNext(){setTimeout(()=>{showNotif();scheduleNext();},Math.random()*2500+3000);}
-scheduleNext();
 
-// CHAT
+  // Baguhin din ng bahagya ang dynamic counter para magmukhang totoong may nababawas/nadadagdag
+  let currentCount = parseInt(riderCountEl.innerText);
+  riderCountEl.innerText = currentCount + (Math.random() > 0.4 ? 1 : -1);
+
+  if(activeNotifs.length>3){
+    const old=activeNotifs.pop();
+    old.classList.add('hide');
+    setTimeout(()=>old.remove(),400);
+  }
+
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>card.classList.add('show'));
+  });
+
+  setTimeout(()=>{
+    card.classList.add('hide');
+    setTimeout(()=>{
+      card.remove();
+      const i=activeNotifs.indexOf(card);
+      if(i>-1)activeNotifs.splice(i,1);
+    },400);
+  },5000);
+}
+
+setTimeout(()=>showNotif(),1500);
+setInterval(()=>showNotif(), Math.random()*3000+4000);
+
+// ===== LIVE CHAT =====
 let chatOpen=false;
+let badgeCount=1;
+
 function toggleChat(){
   chatOpen=!chatOpen;
   document.getElementById('chat-box').classList.toggle('open',chatOpen);
   if(chatOpen){
     document.getElementById('chat-badge').style.display='none';
-    document.getElementById('bot-nudge').classList.remove('show');
-    if(document.getElementById('chatMessages').children.length===0) initChat();
+    badgeCount=0;
+    if(document.getElementById('chatMessages').children.length===0){
+      initChat();
+    }
   }
 }
+
 function initChat(){
   addBotMsg("Kumusta! 👋 Ako si **PandaBot**, ang inyong support assistant.");
-  setTimeout(()=>addBotMsg("Paano kita matutulungan ngayon? Piliin ang concern mo o mag-type. 😊"),950);
+  setTimeout(()=>addBotMsg("Paano kita matutulungan ngayon? Maaari kang pumili sa mga options sa ibaba o mag-type ng iyong concern. 😊"),900);
 }
+
 function addBotMsg(text){
   const msgs=document.getElementById('chatMessages');
   const typing=document.createElement('div');
   typing.className='msg bot typing-indicator';
   typing.innerHTML=`<div class="msg-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
-  msgs.appendChild(typing);msgs.scrollTop=msgs.scrollHeight;
+  msgs.appendChild(typing);
+  msgs.scrollTop=msgs.scrollHeight;
+
   setTimeout(()=>{
     typing.remove();
-    const d=document.createElement('div');d.className='msg bot';
+    const d=document.createElement('div');
+    d.className='msg bot';
     const now=new Date();
     const t=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
-    const fmt=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-    d.innerHTML=`<div class="msg-bubble">${fmt}</div><div class="msg-time">${t}</div>`;
-    msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
-  },800);
+    const formatted=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+    d.innerHTML=`<div class="msg-bubble">${formatted}</div><div class="msg-time">${t}</div>`;
+    msgs.appendChild(d);
+    msgs.scrollTop=msgs.scrollHeight;
+  },900);
 }
+
 function addUserMsg(text){
   const msgs=document.getElementById('chatMessages');
-  const d=document.createElement('div');d.className='msg user';
+  const d=document.createElement('div');
+  d.className='msg user';
   const now=new Date();
   const t=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
   d.innerHTML=`<div class="msg-bubble">${text}</div><div class="msg-time">${t}</div>`;
-  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
 }
-function sendQuick(t){sendMsgText(t);}
-function sendMsg(){const i=document.getElementById('chatInput');const t=i.value.trim();if(!t)return;i.value='';sendMsgText(t);}
+
+function sendQuick(text){
+  sendMsgText(text);
+}
+
+function sendMsg(){
+  const input=document.getElementById('chatInput');
+  const text=input.value.trim();
+  if(!text)return;
+  input.value='';
+  sendMsgText(text);
+}
+
 const botReplies={
-  earnings:["Checking mo ba ang iyong earnings? 🔍","Para sa earnings issues, i-submit ang official ticket kasama ang iyong **Rider ID** at petsa ng missing earnings. Ire-review ng aming team sa loob ng **24-48 hours**. 💰"],
-  suspended:["Naiintindihan namin ang concern mo tungkol sa suspended account. 😔","I-submit ang ticket sa form kasama ang iyong **valid ID** at Rider ID. Ang Account Team ay mag-re-review sa loob ng **1-3 business days**. 🔓"],
-  cashout:["Naiintindihan namin ang cashout concern mo. 💳","Tiyakin na tama ang linked bank/e-wallet. Kung tama naman, i-submit ang ticket kasama ang **screenshot ng error**. Sagot kami sa loob ng **24 hours**. ✅"],
-  booking:["Para sa booking issues, kailangan namin ng iyong **Last Booking ID**. 📦","I-submit ang ticket sa form kasama ang booking ID at detalye. Tutulungan ka namin agad! 🚀"],
-  default:["Naiintindihan ko ang iyong concern. 😊","Para sa mas mabilis na resolusyon, i-submit ang official ticket sa form. Isama ang lahat ng detalye para mapabilis ang pag-process. Salamat sa iyong pasensya! 🐼"]
+  'earnings':["Checking your earnings records... 🔍","Para sa earnings issues, mangyaring i-submit ang official ticket sa form sa itaas kasama ang iyong Rider ID. Ire-review ito ng aming team sa loob ng 24-48 hours. 💰"],
+  'suspended':["Nakita namin ang iyong concern tungkol sa suspended account. 😔","Mangyaring i-submit ang ticket sa form at i-attach ang iyong valid ID at Rider ID number. Ang aming Account Team ay mag-re-review sa loob ng 1-3 business days. 🔓"],
+  'cashout':["Naiintindihan namin ang iyong concern sa cashout. 💳","Mangyaring tiyakin na tama ang iyong linked bank account o e-wallet. Kung tama naman, i-submit ang ticket kasama ang screenshot ng error. Sagot kami sa loob ng 24 hours. ✅"],
+  'booking':["Para sa booking issues, kailangan namin ng iyong **Last Booking ID**. 📦","I-submit ang ticket sa form at isama ang booking ID at detalye ng problema. Tutulungan ka namin agad! 🚀"],
+  'default':["Naiintindihan ko ang iyong concern. 😊","Para sa mas mabilis na resolusyon, mangyaring i-submit ang official ticket sa form sa itaas. Kasama ang lahat ng detalye para mapabilis ang aming pag-process. Salamat sa iyong pasensya! 🐼"]
 };
+
 function getBotReply(text){
   const t=text.toLowerCase();
   if(t.includes('earning')||t.includes('sahod')||t.includes('kita'))return botReplies.earnings;
@@ -577,12 +538,16 @@ function getBotReply(text){
   if(t.includes('booking')||t.includes('order'))return botReplies.booking;
   return botReplies.default;
 }
+
 function sendMsgText(text){
   document.getElementById('quickReplies').style.display='none';
   addUserMsg(text);
   const replies=getBotReply(text);
-  let delay=900;
-  replies.forEach(r=>{setTimeout(()=>addBotMsg(r),delay);delay+=1700;});
+  let delay=1000;
+  replies.forEach(r=>{
+    setTimeout(()=>addBotMsg(r),delay);
+    delay+=1800;
+  });
 }
 </script>
 </body>
